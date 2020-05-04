@@ -52,3 +52,34 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+# My gems
+
+gem 'hirb', '~> 0.7.3'
+gem 'bulma-rails', '~> 0.8.0'
+gem 'simple_form', '~> 5.0', '>= 5.0.2'
+gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'gravatar_image_tag', '~> 1.2'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+gem 'carrierwave', '~> 2.1'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+#Very simple Roles library without any authorization enforcement supporting scope on resource objects.
+gem 'rolify', '~> 5.2'
+# Simple authorization solution for Rails. All permissions are stored in a single location.
+gem 'cancancan', '~> 3.1'
+# Create pretty URLs and work with human-friendly strings as if they were numeric ids.
+gem 'friendly_id', '~> 5.3'
+# A fast, safe and extensible Markdown to (X)HTML parser.
+gem 'redcarpet', '~> 3.5'
+# Fast and easy syntax highlighting for selected languages, written in Ruby.
+gem 'coderay', '~> 1.1', '>= 1.1.2'
+
+
+
+
+# from previos app
+
+gem 'public_activity', '~> 1.5'
+gem 'tachyons-rails', '~> 4.10'
