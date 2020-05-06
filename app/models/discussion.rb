@@ -1,6 +1,6 @@
 class Discussion < ApplicationRecord
   belongs_to :user
-  belongs_to :chanel
+  belongs_to :channel
   has_many :replies, dependent: :destroy
 
   validates :title, presence: true, length: {minimum: 3, maximum: 50}

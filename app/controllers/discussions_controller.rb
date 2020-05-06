@@ -76,6 +76,6 @@ class DiscussionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def discussion_params
-      params.require(:discussion).permit(:title, :content, :user_id)
+      params.require(:discussion).permit(:title, :content, :user_id, :channel_id)
     end
 end
