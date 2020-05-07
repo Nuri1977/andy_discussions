@@ -9,7 +9,7 @@
       <p>
         <strong><%= reply.user.username %></strong> <small><%= time_ago_in_words(reply.created_at) %></small>
         <br />
-        <%= reply.reply %>
+        <%= markdown(reply.reply) %>
       </p>
     </div>
     <nav class="level is-mobile">
