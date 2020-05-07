@@ -3,8 +3,12 @@ class RepliesController < ApplicationController
   before_action :set_reply, only: [:edit, :update, :show, :destroy]
   before_action :set_discussion, only: [:create, :edit, :update, :show, :destroy]
 
+
+  def new
+  end 
+
   def create
-    @reply = @discussion.replies.create(params[:reply]).permit(:reply, :discussion_id)
+    @reply = @discussion.replies.create(reply_params)
     @reply.user_id = current_user.id
 
     respond_to do |format|
@@ -18,12 +22,10 @@ class RepliesController < ApplicationController
     end
   end
 
-  def new
 
-  end
 
   def destroy
-    @reply = @discussions.replies.find(params[:id])
+    @reply = @discussion.replies.find(params[:id])
     @reply.destroy
     redirect_to discussion_path(@discussion)
   end
@@ -44,13 +46,14 @@ class RepliesController < ApplicationController
         format.json { render json: @reply.errors, status: unprocessable_entity }
       end
     end
+  end
 
 
 
   private
 
   def set_discussion
-    @discussion = Discission.find(params[:discussion_id])
+    @discussion = Discussion.find(params[:discussion_id])
   end
 
   def set_reply
@@ -58,7 +61,7 @@ class RepliesController < ApplicationController
   end
 
   def reply_params
-    params.require(:reply).permit(:reply)
+    params.require(:reply).permit(:reply, :user_id, :discussion_id)
   end
 
 end

@@ -1,0 +1,16 @@
+<%= simple_form_for([@discussion, @discussion.replies.build], remote: true) do |f| %>
+
+  <div class="field">
+    <label class="label">
+      <%= f.label :reply %>
+    </label>
+    <div class="control">
+      <%= f.text_area :reply, class: "textarea", placeholder: "Reply", rows: 1 %>
+    </div>
+  </div>
+
+  <div class="control">
+    <%= f.submit "Submit", class: "button is-info" %>
+  </div>
+  
+<% end %>

@@ -1,0 +1,18 @@
+<h1 class="title is-2 has-text-grey">Editing Reply</h1>
+
+<%= simple_form_for([@discussion, @reply]) do |f| %>
+
+  <div class="field">
+    <label class="label">
+      <%= f.label :reply %>
+    </label>
+    <div class="control">
+      <%= f.text_area :reply, class: "textarea", autocomplete: "reply", rows: 5 %>
+    </div>
+  </div>
+
+  <div class="control">
+    <%= f.submit "Edit a reply", class: "button is-info" %>
+  </div>
+
+<% end %>
