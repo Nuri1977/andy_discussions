@@ -1,15 +1,42 @@
 
 <%= simple_form_for(@discussion) do |f| %>
   <%= render "layouts/validation", obj: @discussion %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="columns">
+    <div class="column is-6">
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :content %>
-  </div>
+      <div class="field">
+        <label class="label">
+          <%= f.label :title %>
+        </label>
+        <div class="control">
+          <%= f.text_field :title, class: "input", placeholder: "Title" %>
+        </div>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+      <div class="field">
+        <label class="label">
+          <%= f.label :content  %>
+        </label>
+        <div class="control">
+          <%= f.text_area :content , class: "textarea", placeholder: "Description", rows: 10 %>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">
+          <%= f.label :channel_id %>
+        </label>
+        <div class="control">
+          <%= f.input_field :channel_id, collection: @channels.map { |c| [c.channel, c.id]}, prompt: "Select chanel" %>
+        </div>
+      </div>
+
+
+      <div class="control">
+        <%= f.submit "Submit", class: "button is-info" %>
+        
+      </div>
+
+    </div>
   </div>
 <% end %>
