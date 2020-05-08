@@ -7,7 +7,7 @@
       <div class="level-left"></div>
       <div class="level-right">
 
-      <% if discussion_author(@discussion) %>
+      <% if discussion_author(@discussion) || has_role?(:admin) %>
         <div class="buttons">
             <%= link_to 'Edit Discussion', edit_discussion_path(@discussion), class:'button'%>
             <%= link_to 'Delete', discussion_path(@discussion), method: :delete, data: { confirm: "Delete discussion?" }, class:'button' %>

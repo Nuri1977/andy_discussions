@@ -8,8 +8,9 @@
   </ul>
 
   <br/>
-
-  <%= link_to 'New Channel', new_channel_path, class:'button is-info' %>
+  <% if has_role?(:admin) %>
+    <%= link_to 'New Channel', new_channel_path, class:'button is-info' %>
+  <% end %>
 
 
 </div>
