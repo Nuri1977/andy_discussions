@@ -10,46 +10,37 @@
 
 <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-        <%= link_to "Item 1", "#", class: "navbar-item"  %>
 
+      <% if user_signed_in? %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Discussions
+          </a>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Discussions
-        </a>
-
-        <div class="navbar-dropdown">
-          <%= link_to "New", new_discussion_path, class: "navbar-item" %>
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
+          <div class="navbar-dropdown">
+            <%= link_to "Add new", new_discussion_path, class: "navbar-item" %>
+            <a class="navbar-item">
+              About
+            </a>
+          </div>
         </div>
-      </div>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Chanels
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            New Chanel
+      <% end %>
+        
+      <% if has_role?(:admin) %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Channels
           </a>
-          <a class="navbar-item">
-            Chanel List
-          </a>
+
+          <div class="navbar-dropdown">
+              <%= link_to "Add new channel", new_channel_path, class: "navbar-item"  %>
+            <a class="navbar-item">
+              <%= link_to "View channels", channels_path, class: "navbar-item"  %>
+            </a>
+          </div>
         </div>
-      </div>
+      <% end %>
+
     </div>
 
     <div class="navbar-end">
